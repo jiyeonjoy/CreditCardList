@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import FirebaseDatabase
 import Kingfisher
 
 class CardListViewController: UITableViewController {
+    var ref: DatabaseReference!     //Firebase Realtime Database
     
     var creditCardList: [CreditCard] = []
     
@@ -18,6 +20,25 @@ class CardListViewController: UITableViewController {
         //UITableView
         let nibName = UINib(nibName: "CardListCellTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "CardListCellTableViewCell")
+        
+        /*Firebase Database 읽기*/
+        self.ref = Database.database().reference()
+        
+        self.ref.observe(.value) { snapshot in
+            guard let value = snapshot.value as? [String: [String: Any]] else { return }
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: value)
+                let cardData = try JSONDecoder().decode([String: CreditCard].self, from: jsonData)
+                let cardList = Array(cardData.values)
+                self.creditCardList = cardList.sorted { $0.rank < $1.rank }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch let error {
+                print("Error json parsing \(error)")
+            }
+        }
     }
 }
 
