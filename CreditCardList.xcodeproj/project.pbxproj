@@ -19,6 +19,7 @@
 		90E327DF291FA10A00D5FEE2 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E327DE291FA10A00D5FEE2 /* CardDetailViewController.swift */; };
 		90E327E1291FA60800D5FEE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90E327E0291FA60800D5FEE2 /* GoogleService-Info.plist */; };
 		90E327E4291FAEE800D5FEE2 /* moneyAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = 90E327E3291FAE6700D5FEE2 /* moneyAnim.json */; };
+		90E327E6291FC57B00D5FEE2 /* CreditCardDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E327E5291FC57B00D5FEE2 /* CreditCardDummy.swift */; };
 		96564041FD45AB1878891A41 /* Pods_CreditCardList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7696C37ACA5C36BE091389 /* Pods_CreditCardList.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		90E327DE291FA10A00D5FEE2 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		90E327E0291FA60800D5FEE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90E327E3291FAE6700D5FEE2 /* moneyAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moneyAnim.json; sourceTree = "<group>"; };
+		90E327E5291FC57B00D5FEE2 /* CreditCardDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardDummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				90E327DB291F9C2400D5FEE2 /* CardListCellTableViewCell.xib */,
 				90E327DE291FA10A00D5FEE2 /* CardDetailViewController.swift */,
 				90E327E3291FAE6700D5FEE2 /* moneyAnim.json */,
+				90E327E5291FC57B00D5FEE2 /* CreditCardDummy.swift */,
 			);
 			path = CreditCardList;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				90E327DF291FA10A00D5FEE2 /* CardDetailViewController.swift in Sources */,
 				90E327DC291F9C2400D5FEE2 /* CardListCellTableViewCell.swift in Sources */,
 				90E327D7291F9ADB00D5FEE2 /* CardListViewController.swift in Sources */,
+				90E327E6291FC57B00D5FEE2 /* CreditCardDummy.swift in Sources */,
 				90E327C3291F971300D5FEE2 /* AppDelegate.swift in Sources */,
 				90E327C5291F971300D5FEE2 /* SceneDelegate.swift in Sources */,
 			);
