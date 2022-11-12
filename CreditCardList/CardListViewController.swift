@@ -8,10 +8,12 @@
 import UIKit
 import FirebaseDatabase
 import Kingfisher
+import FirebaseFirestore
 
 class CardListViewController: UITableViewController {
-    var ref: DatabaseReference!     //Firebase Realtime Database
-    
+//    var ref: DatabaseReference!     //Firebase Realtime Database
+    var db = Firestore.firestore() //Firebase Firestore
+
     var creditCardList: [CreditCard] = []
     
     override func viewDidLoad() {
@@ -22,21 +24,44 @@ class CardListViewController: UITableViewController {
         tableView.register(nibName, forCellReuseIdentifier: "CardListCellTableViewCell")
         
         /*Firebase Database 읽기*/
-        self.ref = Database.database().reference()
+//        self.ref = Database.database().reference()
+//
+//        self.ref.observe(.value) { snapshot in
+//            guard let value = snapshot.value as? [String: [String: Any]] else { return }
+//            do {
+//                let jsonData = try JSONSerialization.data(withJSONObject: value)
+//                let cardData = try JSONDecoder().decode([String: CreditCard].self, from: jsonData)
+//                let cardList = Array(cardData.values)
+//                self.creditCardList = cardList.sorted { $0.rank < $1.rank }
+//
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            } catch let error {
+//                print("Error json parsing \(error)")
+//            }
+//        }
         
-        self.ref.observe(.value) { snapshot in
-            guard let value = snapshot.value as? [String: [String: Any]] else { return }
-            do {
-                let jsonData = try JSONSerialization.data(withJSONObject: value)
-                let cardData = try JSONDecoder().decode([String: CreditCard].self, from: jsonData)
-                let cardList = Array(cardData.values)
-                self.creditCardList = cardList.sorted { $0.rank < $1.rank }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+        /*Firebase Firestore 읽기*/
+        db.collection("creditCardList").addSnapshotListener { snapshot, error in
+            guard let documents = snapshot?.documents else {
+                print("Error Firestore fetching document: \(String(describing: error))")
+                return
+            }
+
+            self.creditCardList = documents.compactMap { doc -> CreditCard? in
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: doc.data(), options: [])
+                    let creditCard = try JSONDecoder().decode(CreditCard.self, from: jsonData)
+                    return creditCard
+                } catch let error {
+                    print("Error json parsing \(error)")
+                    return nil
                 }
-            } catch let error {
-                print("Error json parsing \(error)")
+            }.sorted { $0.rank < $1.rank }
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }
