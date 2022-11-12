@@ -109,6 +109,23 @@ extension CardListViewController {
             self.ref.child("\(key)/isSelected").setValue(true)
         }
         */
+        
+        /*Firebase Firestore 쓰기
+        let cardID = creditCardList[indexPath.row].id
+        
+        //option1
+        self.db.collection("creditCardList").document("card\(cardID)").updateData(["isSelected": true])
+        
+        //option2
+        self.db.collection("creditCardList").whereField("id", isEqualTo: cardID).getDocuments { snapshot, error in
+            guard let document = snapshot?.documents.first else {
+                print("Error Firestore fetching document: \(String(describing: error))")
+                return
+            }
+            
+            document.reference.updateData(["isSelected": true])
+        }
+         */
     }
     
     //Firebase Database/Firestore 삭제
@@ -129,6 +146,22 @@ extension CardListViewController {
             }
             */
             
+            /*Firebase Firestore 삭제
+            let cardID = creditCardList[indexPath.row].id
+            
+            //option1
+            self.db.collection("creditCardList").document("card\(cardID)").delete()
+            
+            //option2
+            self.db.collection("creditCardList").whereField("id", isEqualTo: cardID).getDocuments { snapshot, error in
+                guard let document = snapshot?.documents.first else {
+                    print("Error Firestore fetching document: \(String(describing: error))")
+                    return
+                }
+
+                document.reference.delete()
+            }
+            */
         }
     }
 }
