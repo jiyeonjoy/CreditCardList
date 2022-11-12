@@ -22,7 +22,7 @@ class CardDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let animationView = AnimationView(name: "money")
+        let animationView = AnimationView(name: "moneyAnim")
         self.moneyLottie.contentMode = .scaleAspectFit
         self.moneyLottie.addSubview(animationView)
         animationView.frame = self.moneyLottie.bounds
