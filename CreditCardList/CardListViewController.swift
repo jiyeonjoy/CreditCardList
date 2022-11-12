@@ -70,5 +70,40 @@ extension CardListViewController {
         
         detailViewController.promotionDetail = creditCardList[indexPath.row].promotionDetail
         self.show(detailViewController, sender: nil)
+        
+        /*Firebase Database 쓰기
+        let cardID = creditCardList[indexPath.row].id
+        //option1
+        self.ref.child("Item\(cardID)/isSelected").setValue(true)
+        //option2
+        self.ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) {[weak self] snapshot in
+            guard let self = self,
+                  let value = snapshot.value as? [String: [String: Any]],
+                  let key = value.keys.first else { return }
+            
+            self.ref.child("\(key)/isSelected").setValue(true)
+        }
+        */
+    }
+    
+    //Firebase Database/Firestore 삭제
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            /*Firebase Realtime Database 삭제
+            let cardID = creditCardList[indexPath.row].id
+            self.ref.queryOrdered(byChild: "id").queryEqual(toValue: cardID).observe(.value) {[weak self] snapshot in
+                guard let self = self,
+                      let value = snapshot.value as? [String: [String: Any]],
+                      let key = value.keys.first else { return }
+                
+                self.ref.child(key).removeValue()
+            }
+            */
+            
+        }
     }
 }
