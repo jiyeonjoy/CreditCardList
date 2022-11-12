@@ -7,5 +7,6 @@ target 'CreditCardList' do
 
   # Pods for CreditCardList
 pod 'Kingfisher', '6.3.1'
+pod 'lottie-ios', '3.2.3'
 
 end
