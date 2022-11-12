@@ -17,6 +17,7 @@
 		90E327DC291F9C2400D5FEE2 /* CardListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E327DA291F9C2400D5FEE2 /* CardListCellTableViewCell.swift */; };
 		90E327DD291F9C2400D5FEE2 /* CardListCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E327DB291F9C2400D5FEE2 /* CardListCellTableViewCell.xib */; };
 		90E327DF291FA10A00D5FEE2 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E327DE291FA10A00D5FEE2 /* CardDetailViewController.swift */; };
+		90E327E1291FA60800D5FEE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90E327E0291FA60800D5FEE2 /* GoogleService-Info.plist */; };
 		96564041FD45AB1878891A41 /* Pods_CreditCardList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7696C37ACA5C36BE091389 /* Pods_CreditCardList.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		90E327DA291F9C2400D5FEE2 /* CardListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListCellTableViewCell.swift; sourceTree = "<group>"; };
 		90E327DB291F9C2400D5FEE2 /* CardListCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardListCellTableViewCell.xib; sourceTree = "<group>"; };
 		90E327DE291FA10A00D5FEE2 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		90E327E0291FA60800D5FEE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		90E327C1291F971300D5FEE2 /* CreditCardList */ = {
 			isa = PBXGroup;
 			children = (
+				90E327E0291FA60800D5FEE2 /* GoogleService-Info.plist */,
 				90E327C2291F971300D5FEE2 /* AppDelegate.swift */,
 				90E327C4291F971300D5FEE2 /* SceneDelegate.swift */,
 				90E327C8291F971300D5FEE2 /* Main.storyboard */,
@@ -165,6 +168,7 @@
 			files = (
 				90E327CF291F971400D5FEE2 /* LaunchScreen.storyboard in Resources */,
 				90E327CC291F971400D5FEE2 /* Assets.xcassets in Resources */,
+				90E327E1291FA60800D5FEE2 /* GoogleService-Info.plist in Resources */,
 				90E327CA291F971300D5FEE2 /* Main.storyboard in Resources */,
 				90E327DD291F9C2400D5FEE2 /* CardListCellTableViewCell.xib in Resources */,
 			);
